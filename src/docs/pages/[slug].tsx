@@ -1,6 +1,6 @@
 import {GetStaticPaths, GetStaticProps} from 'next';
 import React from 'react';
-import Layout from "../layout/layout";
+import Layout, {sampleDocTopics} from "../layout/layout";
 import DocsComponent from "../components/docs-component";
 
 
@@ -11,11 +11,8 @@ if (!PUBLIC_API_KEY || !PRIVATE_API_KEY) throw new Error('API keys were not set 
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const slugs = await fetch('https://api.example.com/docs/slugs')
-        .then((res) => res.json());
-
-    const paths = slugs.map((slug: string) => ({
-        params: {slug},
+    const paths = sampleDocTopics.map(topic => ({
+        params: {title: topic.title}
     }));
 
     //Maybe fallback to blocking
@@ -39,9 +36,9 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 
 
 const sampleInstallationContent = {
-	title: "Installation",
-	topics: ["Step-by-step Guide", "Troubleshooting", "Updating"],
-	content: "Installation content.."
+    title: "Installation",
+    topics: ["Step-by-step Guide", "Troubleshooting", "Updating"],
+    content: "Installation content.."
 }
 
 const DocPage = ({data}: { data: any }) => {
@@ -49,11 +46,12 @@ const DocPage = ({data}: { data: any }) => {
         throw new Error('API keys are not set');
     }
 
-	return (
-		<Layout >
-			<DocsComponent title={sampleInstallationContent.title} topics={sampleInstallationContent.topics} content={sampleInstallationContent.content} />
-		</Layout>
-	);
+    return (
+        <Layout>
+            <DocsComponent title={sampleInstallationContent.title} topics={sampleInstallationContent.topics}
+                           content={sampleInstallationContent.content}/>
+        </Layout>
+    );
 };
 
 export default DocPage;

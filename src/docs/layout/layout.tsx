@@ -1,6 +1,7 @@
 import React from "react";
-import Sidebar from "@/app/docs/layout/sidebar/sidebar";
-import Navbar from "@/app/docs/layout/navbar/navbar";
+import Sidebar from "./sidebar/sidebar";
+import Navbar from "./navbar/navbar";
+
 
 type Props = {
 	// sections: any;
@@ -8,7 +9,7 @@ type Props = {
 };
 
 // Предполагается что будут приходить отдельно секции и отдельно контент
-const sampleDocTopics = [
+export const sampleDocTopics = [
 	{
 		title: "Getting Started",
 		subsections: [

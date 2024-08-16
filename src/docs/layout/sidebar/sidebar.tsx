@@ -1,5 +1,5 @@
 import React from "react";
-import SidebarItem from "@/app/docs/layout/sidebar/sidebar-item";
+import SidebarItem from "./sidebar-item";
 
 export type SubsectionType = {
 	title: string;
