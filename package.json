@@ -1,7 +1,7 @@
 {
-  "name": "nexa-next-sdk",
+  "name": "nexa-next-sdk-beta",
   "version": "1.0.0",
-  "description": "",
+  "description": "Nexa SDK for Next.js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
